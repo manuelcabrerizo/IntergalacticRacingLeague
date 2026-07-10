@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cplbsobxbftce"]
+
+[ext_resource type="Texture2D" uid="uid://d3inhh50bbudd" path="res://Art/Models/RacingBolid/racing_bolid_3.jpg" id="1_wfjs3"]
+[ext_resource type="Texture2D" uid="uid://cmioj1kffn3ff" path="res://Art/Models/RacingBolid/racing_bolid_5.png" id="2_3o868"]
+
+[resource]
+albedo_color = Color(0.32172796, 0.32172796, 0.32172796, 1)
+albedo_texture = ExtResource("1_wfjs3")
+metallic = 1.0
+metallic_specular = 0.25
+roughness = 0.4
+normal_enabled = true
+normal_texture = ExtResource("2_3o868")
+texture_filter = 0

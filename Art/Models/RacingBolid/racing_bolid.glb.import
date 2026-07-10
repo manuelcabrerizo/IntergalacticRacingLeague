@@ -1,0 +1,108 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bj4q0e5viya88"
+path="res://.godot/imported/racing_bolid.glb-fe5330226977729daaa68732a8785226.scn"
+
+[deps]
+
+source_file="res://Art/Models/RacingBolid/racing_bolid.glb"
+dest_files=["res://.godot/imported/racing_bolid.glb-fe5330226977729daaa68732a8785226.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"Sketchfab_Scene_defaultMaterial": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/RacingBolid/Sketchfab_Scene_defaultMaterial.res",
+"save_to_file/path": "uid://bj1kr0120lpa4"
+},
+"Sketchfab_Scene_defaultMaterial2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/RacingBolid/Sketchfab_Scene_defaultMaterial2.res",
+"save_to_file/path": "uid://byj3nl7pqn5cp"
+},
+"Sketchfab_Scene_defaultMaterial3": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/RacingBolid/Sketchfab_Scene_defaultMaterial3.res",
+"save_to_file/path": "uid://d0v363vv4eovl"
+},
+"Sketchfab_Scene_defaultMaterial4": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/RacingBolid/Sketchfab_Scene_defaultMaterial4.res",
+"save_to_file/path": "uid://ctefi6qkw6h3w"
+},
+"Sketchfab_Scene_defaultMaterial5": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/RacingBolid/Sketchfab_Scene_defaultMaterial5.res",
+"save_to_file/path": "uid://ylnchxuacsck"
+},
+"Sketchfab_Scene_defaultMaterial6": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/RacingBolid/Sketchfab_Scene_defaultMaterial6.res",
+"save_to_file/path": "uid://bn118frgsrtma"
+},
+"Sketchfab_Scene_defaultMaterial7": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/RacingBolid/Sketchfab_Scene_defaultMaterial7.res",
+"save_to_file/path": "uid://dog8wdeyln6"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

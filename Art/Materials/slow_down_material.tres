@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bei6wupn2cp7h"]
+
+[ext_resource type="Texture2D" uid="uid://dhtecvwq7vv4y" path="res://Art/Textures/liquid_alien_1.png" id="1_uy83w"]
+
+[resource]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+albedo_texture = ExtResource("1_uy83w")
+metallic_specular = 0.0
+emission_enabled = true
+emission_energy_multiplier = 1.88
+emission_texture = ExtResource("1_uy83w")
+uv1_scale = Vector3(2, 2, 2)
+texture_filter = 0

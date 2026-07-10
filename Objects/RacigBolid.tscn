@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cv5erdnhjeugm"]
+
+[ext_resource type="Material" uid="uid://b6dlj6380kiqg" path="res://Art/Materials/racing_bolid__engine_material.tres" id="1_r2ng7"]
+[ext_resource type="ArrayMesh" uid="uid://bjvtqdlnhsf5h" path="res://Art/Models/RacingBolid/Sketchfab_Scene_defaultMaterial2.res" id="2_38ecs"]
+[ext_resource type="Material" uid="uid://sk6oxnxucvmf" path="res://Art/Materials/racing_bolid__body_material.tres" id="3_svhe4"]
+[ext_resource type="ArrayMesh" uid="uid://dcfgqvrf13ydg" path="res://Art/Models/RacingBolid/Sketchfab_Scene_defaultMaterial3.res" id="4_ll6uc"]
+[ext_resource type="Material" uid="uid://cplbsobxbftce" path="res://Art/Materials/racing_bolid__glass_material.tres" id="5_j0yqn"]
+[ext_resource type="ArrayMesh" uid="uid://bwejon0wrhllf" path="res://Art/Models/RacingBolid/Sketchfab_Scene_defaultMaterial6.res" id="6_6rm5o"]
+[ext_resource type="Material" uid="uid://i16cutxv0vbw" path="res://Art/Materials/racing_bolid__top_material.tres" id="7_dtdyq"]
+[ext_resource type="ArrayMesh" uid="uid://do12ninecqtnw" path="res://Art/Models/RacingBolid/Sketchfab_Scene_defaultMaterial7.res" id="8_o2ptv"]
+[ext_resource type="Material" uid="uid://ddyui8c30houi" path="res://Art/Materials/racing_bolid__engine1_material.tres" id="9_orpif"]
+[ext_resource type="ArrayMesh" uid="uid://ca3r0bv3mk2xg" path="res://Art/Models/RacingBolid/Sketchfab_Scene_defaultMaterial.res" id="10_78s3m"]
+
+[node name="RacingBolid" type="Node3D" unique_id=823610812]
+
+[node name="SketchfabSceneDefaultMaterial2" type="MeshInstance3D" parent="." unique_id=670550049]
+transform = Transform3D(-4, 0, -6.039832e-07, 0, 4, 0, 6.039832e-07, 0, -4, 0, 0, 0)
+material_override = ExtResource("1_r2ng7")
+mesh = ExtResource("2_38ecs")
+
+[node name="SketchfabSceneDefaultMaterial3" type="MeshInstance3D" parent="." unique_id=1485476990]
+transform = Transform3D(-4, 0, -6.039832e-07, 0, 4, 0, 6.039832e-07, 0, -4, 0, 0, 0)
+material_override = ExtResource("3_svhe4")
+mesh = ExtResource("4_ll6uc")
+
+[node name="SketchfabSceneDefaultMaterial6" type="MeshInstance3D" parent="." unique_id=1474371728]
+transform = Transform3D(-4, 0, -6.039832e-07, 0, 4, 0, 6.039832e-07, 0, -4, 0, 0, 0)
+material_override = ExtResource("5_j0yqn")
+mesh = ExtResource("6_6rm5o")
+
+[node name="SketchfabSceneDefaultMaterial7" type="MeshInstance3D" parent="." unique_id=2052751043]
+transform = Transform3D(-4, 0, -6.039832e-07, 0, 4, 0, 6.039832e-07, 0, -4, 0, 0, 0)
+material_override = ExtResource("7_dtdyq")
+mesh = ExtResource("8_o2ptv")
+
+[node name="SketchfabSceneDefaultMaterial" type="MeshInstance3D" parent="." unique_id=1762896987]
+transform = Transform3D(-4, 0, -6.039832e-07, 0, 4, 0, 6.039832e-07, 0, -4, 0, 0, 0)
+material_override = ExtResource("9_orpif")
+mesh = ExtResource("10_78s3m")

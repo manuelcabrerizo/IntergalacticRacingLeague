@@ -1,0 +1,219 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://blmiktyuy2os"
+path="res://.godot/imported/Hills.glb-faf8a463fa0f7c808399bfaca5aaf450.scn"
+
+[deps]
+
+source_file="res://Art/Models/Hills/Hills.glb"
+dest_files=["res://.godot/imported/Hills.glb-faf8a463fa0f7c808399bfaca5aaf450.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"Grass": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Art/Models/Hills/Grass.tres",
+"use_external/path": "uid://dew3pbuvqr62h"
+},
+"Rock": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Art/Models/Hills/Rock.tres",
+"use_external/path": "uid://rjsnd6yny07g"
+}
+},
+"meshes": {
+"Hills_Landscape": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_Landscape.res",
+"save_to_file/path": "uid://dgttblgnuvswe"
+},
+"Hills_Landscape_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_Landscape_002.res",
+"save_to_file/path": "uid://cg3wvec7fkfnk"
+},
+"Hills_hill1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_hill1.tres",
+"save_to_file/path": "uid://bx08s8r8reusk"
+},
+"Hills_hill2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_hill2.res",
+"save_to_file/path": "uid://ch72fgh12qxat"
+},
+"Hills_hill2_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_hill2_001.res",
+"save_to_file/path": "uid://jtpedctiktoh"
+},
+"Hills_hill2_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_hill2_002.res",
+"save_to_file/path": "uid://db8qi1hwq67iu"
+},
+"Hills_hill2_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_hill2_003.res",
+"save_to_file/path": "uid://sj6o8t41qdke"
+},
+"Hills_hill2_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_hill2_004.res",
+"save_to_file/path": "uid://ddmurmcmv4e8x"
+},
+"Hills_hill2_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_hill2_005.res",
+"save_to_file/path": "uid://bbp2jsurnqolq"
+},
+"Hills_hill2_006": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_hill2_006.res",
+"save_to_file/path": "uid://djj456mmcchrf"
+},
+"Hills_hill2_007": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_hill2_007.res",
+"save_to_file/path": "uid://c52ddnidq1mcs"
+},
+"Hills_hill2_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_hill2_008.res",
+"save_to_file/path": "uid://da20j1y6cb2vm"
+},
+"Hills_hill2_010": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_hill2_010.res",
+"save_to_file/path": "uid://by8ipr8dfgtlt"
+},
+"Hills_hill2_011": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_hill2_011.res",
+"save_to_file/path": "uid://blsgjdw3pdaa0"
+},
+"Hills_hill2_012": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_hill2_012.res",
+"save_to_file/path": "uid://c85trv5g4k5h2"
+},
+"Hills_hill2_013": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_hill2_013.res",
+"save_to_file/path": "uid://cn37qwrdu7pfv"
+},
+"Hills_hill2_014": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_hill2_014.res",
+"save_to_file/path": "uid://dkpevf3jdkh8f"
+},
+"Hills_hill2_015": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/Hills/Hills_hill2_015.res",
+"save_to_file/path": "uid://fkogncqyfrdk"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

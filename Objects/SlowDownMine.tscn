@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cddxaotdfoqo6"]
+
+[ext_resource type="Script" uid="uid://be4kls8dx7qs1" path="res://Objects/slow_down_mine.gd" id="1_rumta"]
+[ext_resource type="Material" uid="uid://bei6wupn2cp7h" path="res://Art/Materials/slow_down_material.tres" id="2_rumta"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_vrsrx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_phyad"]
+radius = 30.0
+
+[node name="SlowDownMine" type="Node3D" unique_id=991587246]
+script = ExtResource("1_rumta")
+
+[node name="Visual" type="MeshInstance3D" parent="." unique_id=1952496727]
+transform = Transform3D(60, 0, 0, 0, 60, 0, 0, 0, 60, 0, 0, 0)
+material_override = ExtResource("2_rumta")
+mesh = SubResource("SphereMesh_vrsrx")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=147493335]
+collision_layer = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=755749378]
+shape = SubResource("SphereShape3D_phyad")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

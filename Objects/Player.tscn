@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://sd22eebwaak1"]
+
+[ext_resource type="Script" uid="uid://bonurwgphrimp" path="res://Scripts/player.gd" id="1_8r7yd"]
+[ext_resource type="ArrayMesh" uid="uid://b320hxxsy878c" path="res://Art/Models/ship.obj" id="2_n6db0"]
+[ext_resource type="Material" uid="uid://6ffpgp1gqvqw" path="res://Art/Materials/ship_material.tres" id="2_yk4ok"]
+[ext_resource type="Texture2D" uid="uid://dodknq22ul0jx" path="res://Art/Textures/neon.png" id="4_gijnf"]
+[ext_resource type="AudioStream" uid="uid://dimvtre4qpkwf" path="res://Art/Audio/Sfxs/ship.wav" id="5_u60sl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4ajx2"]
+radius = 2.4746335
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u60sl"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_gijnf")
+emission_enabled = true
+emission = Color(0.49028692, 0.13684635, 0, 1)
+emission_energy_multiplier = 2.35
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_yk4ok"]
+material = SubResource("StandardMaterial3D_u60sl")
+
+[sub_resource type="Curve" id="Curve_gijnf"]
+_limits = [0.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0.0076530613, 1.3359606), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_t1tke"]
+offsets = PackedFloat32Array(0, 0.1693989, 0.29234973, 0.72677594, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1, 1, 0.41960785, 0, 1, 1, 0, 0, 0.8352941, 1, 0, 0, 0)
+
+[node name="Player" type="CharacterBody3D" unique_id=378433832]
+collision_mask = 6
+script = ExtResource("1_8r7yd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1543969103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5222591, -0.8503864)
+shape = SubResource("SphereShape3D_4ajx2")
+debug_fill = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2018626833]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.08160162, 0.13383102, -0.03873205)
+material_override = ExtResource("2_yk4ok")
+mesh = ExtResource("2_n6db0")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=981378784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07854229, 0.20488024, 1.1715573)
+amount = 25
+lifetime = 0.25
+local_coords = true
+mesh = SubResource("QuadMesh_yk4ok")
+direction = Vector3(0, 0, 1)
+spread = 2.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 25.0
+scale_amount_curve = SubResource("Curve_gijnf")
+color_ramp = SubResource("Gradient_t1tke")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1048809305]
+stream = ExtResource("5_u60sl")
+autoplay = true
+bus = &"Sfx"

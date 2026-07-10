@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b6dlj6380kiqg"]
+
+[ext_resource type="Texture2D" uid="uid://cjbt313sv0yvr" path="res://Art/Models/RacingBolid/racing_bolid_18.jpg" id="1_tngc7"]
+
+[resource]
+albedo_texture = ExtResource("1_tngc7")
+metallic_specular = 0.0
+roughness = 0.0
+texture_filter = 0

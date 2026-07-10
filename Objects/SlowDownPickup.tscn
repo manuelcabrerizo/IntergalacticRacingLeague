@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://lj84fgqakrgl"]
+
+[ext_resource type="Material" uid="uid://bei6wupn2cp7h" path="res://Art/Materials/slow_down_material.tres" id="1_ebct7"]
+[ext_resource type="Script" uid="uid://qpb8m1ok17qp" path="res://Objects/slow_down_pickup.gd" id="1_xqcdy"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_xqcdy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ho62b"]
+radius = 4.372707
+
+[node name="SlowDownPickup" type="Node3D" unique_id=402942489]
+script = ExtResource("1_xqcdy")
+
+[node name="Visual" type="MeshInstance3D" parent="." unique_id=1331939540]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+material_override = ExtResource("1_ebct7")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_xqcdy")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1041026198]
+collision_layer = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1616017757]
+shape = SubResource("SphereShape3D_ho62b")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

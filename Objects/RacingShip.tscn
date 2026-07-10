@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d05uulpxkrk7l"]
+
+[ext_resource type="Material" uid="uid://b3hukrj3jbllb" path="res://Art/Materials/racing_ship__body_material.tres" id="1_hpvdm"]
+[ext_resource type="ArrayMesh" uid="uid://c2ij3n503ntj2" path="res://Art/Models/futuristic-racing-ship/source/Futuristic racing ship _Cube_053.res" id="2_6vhap"]
+[ext_resource type="ArrayMesh" uid="uid://cxsll8adieada" path="res://Art/Models/futuristic-racing-ship/source/Futuristic racing ship _Cube_091.res" id="3_ymccu"]
+[ext_resource type="ArrayMesh" uid="uid://cbs1yrbpk2jsb" path="res://Art/Models/futuristic-racing-ship/source/Futuristic racing ship _Cylinder_033.res" id="5_1s4kf"]
+
+[node name="RacingShip" type="Node3D" unique_id=823610812]
+
+[node name="FuturisticRacingShipCube053" type="MeshInstance3D" parent="." unique_id=1771939651]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+material_override = ExtResource("1_hpvdm")
+mesh = ExtResource("2_6vhap")
+
+[node name="FuturisticRacingShipCube091" type="MeshInstance3D" parent="." unique_id=248558360]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("3_ymccu")
+
+[node name="FuturisticRacingShipCylinder033" type="MeshInstance3D" parent="." unique_id=362438996]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("5_1s4kf")

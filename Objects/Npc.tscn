@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://basdsrpmpwm7h"]
+
+[ext_resource type="Script" uid="uid://1y6ojcg8l1ep" path="res://Scripts/ncp.gd" id="1_cxqjk"]
+[ext_resource type="PackedScene" uid="uid://cv5erdnhjeugm" path="res://Objects/RacigBolid.tscn" id="2_3lma0"]
+[ext_resource type="PackedScene" uid="uid://d05uulpxkrk7l" path="res://Objects/RacingShip.tscn" id="3_cxqjk"]
+[ext_resource type="Texture2D" uid="uid://dodknq22ul0jx" path="res://Art/Textures/neon.png" id="4_1xwkt"]
+[ext_resource type="FontFile" uid="uid://b4ythjacb4hla" path="res://Art/Fonts/Raceline Demo.otf" id="5_2lpdi"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4ajx2"]
+radius = 2.4746335
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cxqjk"]
+radius = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u60sl"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_1xwkt")
+emission_enabled = true
+emission = Color(0.49019608, 0.13725491, 0, 1)
+emission_energy_multiplier = 2.35
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_2lpdi"]
+material = SubResource("StandardMaterial3D_u60sl")
+
+[sub_resource type="Curve" id="Curve_jaygn"]
+_limits = [0.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0.0076530613, 1.3359606), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_4xen0"]
+offsets = PackedFloat32Array(0, 0.1693989, 0.29234973, 0.72677594, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1, 1, 0.41960785, 0, 1, 1, 0, 0, 0.8352941, 1, 0, 0, 0)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1xwkt"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_1xwkt"]
+font = ExtResource("5_2lpdi")
+font_size = 256
+
+[node name="Npc" type="CharacterBody3D" unique_id=378433832]
+collision_mask = 6
+script = ExtResource("1_cxqjk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1543969103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5222591, -0.8503864)
+shape = SubResource("SphereShape3D_4ajx2")
+debug_fill = false
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="." unique_id=642509528]
+shape = SubResource("SphereShape3D_cxqjk")
+
+[node name="Visual" type="Node3D" parent="." unique_id=1981989110]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6711223, -1.2276533)
+
+[node name="RacingBolid" parent="Visual" unique_id=823610812 instance=ExtResource("2_3lma0")]
+visible = false
+
+[node name="RacingShip" parent="Visual" unique_id=315914125 instance=ExtResource("3_cxqjk")]
+visible = false
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Visual" unique_id=397918624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07854229, 0.29545975, 3.723422)
+amount = 25
+lifetime = 0.25
+local_coords = true
+mesh = SubResource("QuadMesh_2lpdi")
+direction = Vector3(0, 0, 1)
+spread = 2.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 25.0
+scale_amount_curve = SubResource("Curve_jaygn")
+color_ramp = SubResource("Gradient_4xen0")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1915972929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8590753, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_1xwkt")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=789701322]
+transparent_bg = true
+size = Vector2i(512, 256)
+
+[node name="Label" type="Label" parent="Sprite3D/SubViewport" unique_id=1014024829]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -22.5
+offset_right = 20.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "P-"
+label_settings = SubResource("LabelSettings_1xwkt")
+horizontal_alignment = 1
+vertical_alignment = 1

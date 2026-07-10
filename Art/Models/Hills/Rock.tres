@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://rjsnd6yny07g"]
+
+[ext_resource type="Texture2D" uid="uid://bg2hm6i8k8ula" path="res://Art/Models/Hills/Hills_234.jpg" id="1_e2cgp"]
+[ext_resource type="Texture2D" uid="uid://dqwphdmlcdxxs" path="res://Art/Models/Hills/Hills_234_norm.jpg" id="3_c73qo"]
+
+[resource]
+resource_name = "Rock"
+cull_mode = 2
+albedo_texture = ExtResource("1_e2cgp")
+metallic_specular = 0.0
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_c73qo")
+texture_filter = 2

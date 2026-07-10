@@ -1,0 +1,99 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://b5xit3xq8d05o"
+path="res://.godot/imported/Futuristic racing ship .glb-4982c04f76338442e0dfee5b8a02577a.scn"
+
+[deps]
+
+source_file="res://Art/Models/futuristic-racing-ship/source/Futuristic racing ship .glb"
+dest_files=["res://.godot/imported/Futuristic racing ship .glb-4982c04f76338442e0dfee5b8a02577a.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"Futuristic racing ship _BezierCurve_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/futuristic-racing-ship/source/Futuristic racing ship _BezierCurve_002.res",
+"save_to_file/path": "uid://cevsd0seqxybv"
+},
+"Futuristic racing ship _Cube_053": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/futuristic-racing-ship/source/Futuristic racing ship _Cube_053.res",
+"save_to_file/path": "uid://bqf1cxnbg6513"
+},
+"Futuristic racing ship _Cube_091": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/futuristic-racing-ship/source/Futuristic racing ship _Cube_091.res",
+"save_to_file/path": "uid://b6jke5r8gxbdl"
+},
+"Futuristic racing ship _Cylinder_027": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/futuristic-racing-ship/source/Futuristic racing ship _Cylinder_027.res",
+"save_to_file/path": "uid://b8qxm6a0hh2va"
+},
+"Futuristic racing ship _Cylinder_033": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/futuristic-racing-ship/source/Futuristic racing ship _Cylinder_033.res",
+"save_to_file/path": "uid://nm0b6wbhad51"
+},
+"Futuristic racing ship _malla cablejada_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/Models/futuristic-racing-ship/source/Futuristic racing ship _malla cablejada_002.res",
+"save_to_file/path": "uid://wjc2lt3wv6ba"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

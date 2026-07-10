@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dknoqofl4npkg"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ltyj7"]
+load_path = "res://.godot/imported/Chain Fence.png-f0f1c9c777cff36260aeb9b99a418515.s3tc.ctex"
+
+[resource]
+transparency = 1
+cull_mode = 2
+depth_draw_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("CompressedTexture2D_ltyj7")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+texture_filter = 4
+disable_receive_shadows = true

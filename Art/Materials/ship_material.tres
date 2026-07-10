@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://6ffpgp1gqvqw"]
+
+[ext_resource type="Texture2D" uid="uid://dkadqteuqaryd" path="res://Art/Textures/Overtone_Default_Diffuse.png" id="1_idlb7"]
+
+[resource]
+albedo_texture = ExtResource("1_idlb7")
+metallic_specular = 0.0
+roughness = 0.0
+texture_filter = 0
