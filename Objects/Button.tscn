@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b7nkho2xeti2k" path="res://Art/Textures/WoodButtonNormal.png" id="1_058xg"]
 [ext_resource type="Texture2D" uid="uid://duh6emcghnsvb" path="res://Art/Textures/WoodButtonHover.png" id="2_eq6vk"]
-[ext_resource type="Script" uid="uid://2tv5ikhwpm6j" path="res://Scripts/animated_button.gd" id="3_5t0q4"]
+[ext_resource type="Script" uid="uid://2tv5ikhwpm6j" path="res://Objects/animated_button.gd" id="3_5t0q4"]
 [ext_resource type="FontFile" uid="uid://b4ythjacb4hla" path="res://Art/Fonts/Raceline Demo.otf" id="4_kyk0m"]
 [ext_resource type="AudioStream" uid="uid://0y2i3tjqpkr8" path="res://Art/Audio/Sfxs/JDSherbert - Ultimate UI SFX Pack - Select - 1.ogg" id="5_xo0vv"]
 

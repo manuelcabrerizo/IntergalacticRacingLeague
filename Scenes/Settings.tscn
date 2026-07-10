@@ -25,13 +25,15 @@ script = ExtResource("1_4hxq3")
 [node name="ColorRect" type="NinePatchRect" parent="." unique_id=1982121831]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 246.0
-offset_top = 31.0
-offset_right = -246.0
-offset_bottom = -31.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -330.0
+offset_top = -293.0
+offset_right = 330.0
+offset_bottom = 293.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_flfri")
@@ -178,6 +180,15 @@ offset_bottom = -38.02649
 grow_vertical = 0
 
 [node name="Label" parent="ColorRect/BackButton" index="0" unique_id=1542724085]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.99991
+offset_top = -35.134262
+offset_right = 142.99991
+offset_bottom = 35.134262
 text = "Back"
 
 [connection signal="value_changed" from="ColorRect/MusicSlider/MusicSlider" to="." method="_on_music_slider_value_changed"]

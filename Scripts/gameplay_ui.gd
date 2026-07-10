@@ -61,7 +61,7 @@ func on_race_timer_change(value: int):
 	pass
 	
 func on_player_start_new_lap(lap: int):
-	race_lap_text.text = "Lap " + str(lap) + "/" + str(GameState.current_level_lap_count)
+	race_lap_text.text = "Lap " + str(lap) + " of " + str(GameState.current_level_lap_count)
 	pass
 	
 func on_player_position_change(pos: int):

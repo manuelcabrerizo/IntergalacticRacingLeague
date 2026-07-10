@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://sd22eebwaak1"]
 
-[ext_resource type="Script" uid="uid://bonurwgphrimp" path="res://Scripts/player.gd" id="1_8r7yd"]
+[ext_resource type="Script" uid="uid://bonurwgphrimp" path="res://Objects/player.gd" id="1_8r7yd"]
 [ext_resource type="ArrayMesh" uid="uid://b320hxxsy878c" path="res://Art/Models/ship.obj" id="2_n6db0"]
 [ext_resource type="Material" uid="uid://6ffpgp1gqvqw" path="res://Art/Materials/ship_material.tres" id="2_yk4ok"]
 [ext_resource type="Texture2D" uid="uid://dodknq22ul0jx" path="res://Art/Textures/neon.png" id="4_gijnf"]

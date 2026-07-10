@@ -4,23 +4,31 @@ extends Node3D
 var instigator: Ship = null
 var target_scale: Vector3
 var start_scale: Vector3
+var is_dropped: bool = false
 var ships: Array[Ship]
 
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var visual: MeshInstance3D = $Visual
 
 func _ready() -> void:
+	is_dropped = false
 	start_scale = Vector3(0.1, 0.1, 0.1)
 	target_scale = visual.scale
 	visual.scale = start_scale
-	create_tween().tween_property(visual, "scale", target_scale, 0.25).set_trans(Tween.TRANS_SINE)
+	var tween = create_tween()
+	tween.tween_property(visual, "scale", target_scale, 0.25).set_trans(Tween.TRANS_SINE)
+	tween.finished.connect(on_drop)
 	var timer = Timer.new()
 	add_child(timer)
 	timer.wait_time = 15.0
 	timer.one_shot = true
 	timer.timeout.connect(shrink_and_destroy)
 	timer.start()
+	audio_stream_player_3d.play()
 	
-func _exit_tree() -> void:
+func _process(_delta: float) -> void:
+	if not is_dropped:
+		position = instigator.position;
 	pass
 
 func set_instigator(new_instigator: Ship):
@@ -46,6 +54,10 @@ func shrink_and_destroy() -> void:
 	var tween = create_tween()
 	tween.tween_property(visual, "scale", start_scale, 0.25).set_trans(Tween.TRANS_SINE)
 	tween.finished.connect(on_destroy)
+	
+func on_drop():
+	is_dropped = true;
+	pass
 	
 func on_destroy():
 	for ship in ships:

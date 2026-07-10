@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://basdsrpmpwm7h"]
 
-[ext_resource type="Script" uid="uid://1y6ojcg8l1ep" path="res://Scripts/ncp.gd" id="1_cxqjk"]
+[ext_resource type="Script" uid="uid://1y6ojcg8l1ep" path="res://Objects/ncp.gd" id="1_cxqjk"]
 [ext_resource type="PackedScene" uid="uid://cv5erdnhjeugm" path="res://Objects/RacigBolid.tscn" id="2_3lma0"]
 [ext_resource type="PackedScene" uid="uid://d05uulpxkrk7l" path="res://Objects/RacingShip.tscn" id="3_cxqjk"]
 [ext_resource type="Texture2D" uid="uid://dodknq22ul0jx" path="res://Art/Textures/neon.png" id="4_1xwkt"]

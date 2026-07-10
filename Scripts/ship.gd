@@ -219,6 +219,5 @@ func spawn_slow_down_mine():
 	var slow_down_mine: SlowDownMine = slow_down_mine_scene.instantiate()
 	get_tree().root.add_child(slow_down_mine)
 	slow_down_mine.set_instigator(self)
-	slow_down_mine.position = position - (basis.y * height)
 	can_spawn_slow_down_mine = false
 	pass

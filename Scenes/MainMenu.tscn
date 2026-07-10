@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bn4keoflrfgr8"]
 
-[ext_resource type="Script" uid="uid://dats5wr0xou65" path="res://Scripts/main_menu.gd" id="1_tt5f1"]
+[ext_resource type="Script" uid="uid://dats5wr0xou65" path="res://Scenes/main_menu.gd" id="1_tt5f1"]
 [ext_resource type="Texture2D" uid="uid://c73nr6k3ow1pc" path="res://Art/Textures/gradient_panel.png" id="2_cmrfp"]
 [ext_resource type="Material" uid="uid://dt5b3g5vhxyjg" path="res://Art/Materials/sea_material.tres" id="3_8saeu"]
 [ext_resource type="FontFile" uid="uid://b4ythjacb4hla" path="res://Art/Fonts/Raceline Demo.otf" id="3_fh7cp"]
@@ -60,6 +60,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tt5f1")
@@ -68,14 +70,17 @@ script = ExtResource("1_tt5f1")
 
 [node name="TitleBackground" type="NinePatchRect" parent="MainMenu/CanvasLayer" unique_id=1473163318]
 texture_filter = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -426.0
-offset_top = 28.28
+offset_top = -293.0
 offset_right = 426.0
-offset_bottom = 221.28
+offset_bottom = -99.999985
 grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_cmrfp")
 patch_margin_left = 4
 patch_margin_top = 4
@@ -106,9 +111,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -201.0
-offset_top = -82.0
+offset_top = -84.0
 offset_right = 201.0
-offset_bottom = 290.0
+offset_bottom = 288.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_cmrfp")
