@@ -1,8 +1,21 @@
 [gd_scene format=3 uid="uid://lj84fgqakrgl"]
 
-[ext_resource type="Material" uid="uid://bei6wupn2cp7h" path="res://Art/Materials/slow_down_material.tres" id="1_ebct7"]
 [ext_resource type="Script" uid="uid://qpb8m1ok17qp" path="res://Objects/slow_down_pickup.gd" id="1_xqcdy"]
+[ext_resource type="Texture2D" uid="uid://boad2d6i88ng5" path="res://Art/Textures/water_3.png" id="2_ho62b"]
 [ext_resource type="AudioStream" uid="uid://davpfl2epayna" path="res://Art/Audio/Sfxs/FifthOctArpH.wav" id="3_ho62b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4j2q"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 0, 1)
+albedo_texture = ExtResource("2_ho62b")
+metallic_specular = 0.0
+emission_enabled = true
+emission_energy_multiplier = 0.75
+emission_texture = ExtResource("2_ho62b")
+uv1_scale = Vector3(2, 2, 2)
+texture_filter = 0
 
 [sub_resource type="SphereMesh" id="SphereMesh_xqcdy"]
 
@@ -14,7 +27,7 @@ script = ExtResource("1_xqcdy")
 
 [node name="Visual" type="MeshInstance3D" parent="." unique_id=1331939540]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-material_override = ExtResource("1_ebct7")
+material_override = SubResource("StandardMaterial3D_s4j2q")
 cast_shadow = 0
 mesh = SubResource("SphereMesh_xqcdy")
 
@@ -28,5 +41,8 @@ shape = SubResource("SphereShape3D_ho62b")
 stream = ExtResource("3_ho62b")
 unit_size = 120.0
 bus = &"Sfx"
+
+[node name="AudioStreamPlayerSplitScreen" type="AudioStreamPlayer" parent="." unique_id=1820015230]
+stream = ExtResource("3_ho62b")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

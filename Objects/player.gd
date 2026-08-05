@@ -16,11 +16,26 @@ const ENGINE_VOLUME: float = 4.0
 var normal_damping: float
 var slow_damping: float
 
+@export var id: int = 1
+
+var input_action_turn_thrust: String = "Thrust_"
+var input_action_turn_left: String = "TurnLeft_"
+var input_action_turn_right: String = "TurnRight_"
+var input_action_turn_break: String = "Break_"
+var input_action_turn_use_item: String = "UseItem_"
+
 func _ready() -> void:
 	super()
 	audio_stream_player.volume_db = ENGINE_VOLUME
 	normal_damping = damping
 	slow_damping = damping / 3.0
+	
+	input_action_turn_thrust += str(id)
+	input_action_turn_left += str(id)
+	input_action_turn_right += str(id)
+	input_action_turn_break += str(id)
+	input_action_turn_use_item += str(id)
+	
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -29,23 +44,23 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	if not is_ended:
-		if Input.is_action_pressed("Thrust"):
+		if Input.is_action_pressed(input_action_turn_thrust):
 			thrust_mag += THRUST_ACC * delta
 		elif thrust_mag > 0.0:
 			thrust_mag -= THRUST_DEACC * delta
-		if Input.is_action_pressed("TurnLeft"):
+		if Input.is_action_pressed(input_action_turn_left):
 			vel_yaw += ROTATION_YAW_SPEED * delta
 			vel_roll += ROTATION_ROLL_SPEED * delta
-		if Input.is_action_pressed("TurnRight"):
+		if Input.is_action_pressed(input_action_turn_right):
 			vel_yaw -= ROTATION_YAW_SPEED * delta
 			vel_roll -= ROTATION_ROLL_SPEED * delta
-		if Input.is_action_just_pressed("Break"):
+		if Input.is_action_just_pressed(input_action_turn_break):
 			damping = slow_damping
-		if Input.is_action_just_released("Break"):
+		if Input.is_action_just_released(input_action_turn_break):
 			damping = normal_damping
-		if Input.is_action_just_pressed("UseItem"):
-			spawn_slow_down_mine()
-			EventBuss.on_slow_down_pickup_used()
+		if Input.is_action_just_pressed(input_action_turn_use_item):
+			spawn_slow_down_pickup(track_path, track_path_follow)
+			EventBuss.on_slow_down_pickup_used(id)
 	else:
 		process_auto_pilot(delta, track_path, track_path_follow, track_generator)
 		
@@ -55,23 +70,24 @@ func _physics_process(delta: float) -> void:
 	
 func ship_update_engine():
 	var t = thrust_mag / THRUST_MAX
-	audio_stream_player.pitch_scale = lerp(MIN_ENGINE_PITCH, MAX_ENGINE_PITCH, t)	
+	audio_stream_player.pitch_scale = lerp(MIN_ENGINE_PITCH, MAX_ENGINE_PITCH, t)
 	cpu_particles_3d.color.a = lerp(0.0, 1.0, t*t)
 	pass
 	
 func start_new_lap():
 	super()
-	EventBuss.on_player_start_new_lap(max_lap)
-	EventBuss.on_player_change_position(current_position)
+	EventBuss.on_player_start_new_lap(max_lap, id)
+	EventBuss.on_player_change_position(current_position, id)
 	pass
 	
 func set_current_position(pos: int):
-	if(pos != current_position && current_lap > 0):
-		EventBuss.on_player_change_position(pos)
+	if(pos != current_position && current_lap > 0 && !is_ended):
+		EventBuss.on_player_change_position(pos, id)
 	super(pos)
 	pass
 	
-func slow_down_mine_grabbed():
-	super()
-	EventBuss.on_slow_down_pickup_grabbed()
+func slow_down_pickup_grabbed(pick_up_type: SlowDownPickup.SlowDownPickupType):
+	if can_spawn_slow_down_pickup == false:
+		super(pick_up_type)
+		EventBuss.on_slow_down_pickup_grabbed(id, pick_up_type)
 	pass

@@ -15,7 +15,13 @@ func _ready() -> void:
 	pass
 
 func _on_play_button_button_down() -> void:
-	get_tree().change_scene_to_file(GameState.level_selector_path)
+	GameState.current_gameplay_option = GameState.GameplayOption.SINGLE_PLAYER
+	get_tree().change_scene_to_file(GameState.game_mode_selector_path)
+	pass
+	
+func _on_split_screen_button_button_down() -> void:
+	GameState.current_gameplay_option = GameState.GameplayOption.SPLIT_SCREEN
+	get_tree().change_scene_to_file(GameState.game_mode_selector_path)
 	pass
 
 func _on_settings_button_button_down() -> void:

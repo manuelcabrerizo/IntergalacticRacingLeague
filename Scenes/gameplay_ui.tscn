@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://ij8aju0wg4rl"]
+
+[ext_resource type="Script" uid="uid://cnvbaxtvej31q" path="res://Scripts/gameplay_ui.gd" id="1_m24ka"]
+[ext_resource type="Texture2D" uid="uid://c73nr6k3ow1pc" path="res://Art/Textures/gradient_panel.png" id="2_7xth8"]
+[ext_resource type="PackedScene" uid="uid://hu7je6nxv5ir" path="res://Objects/Button.tscn" id="3_qtjcj"]
+[ext_resource type="Script" uid="uid://ddjhb4iyqvkgg" path="res://Scripts/pause_panel.gd" id="4_t255e"]
+[ext_resource type="FontFile" uid="uid://b4ythjacb4hla" path="res://Art/Fonts/Raceline Demo.otf" id="5_lj6eg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_euove"]
+font = ExtResource("5_lj6eg")
+font_size = 80
+font_color = Color(0.87, 0.78010005, 0.3306, 1)
+outline_size = 12
+outline_color = Color(0.13686025, 0.29849142, 0.6479523, 1)
+
+[node name="GameplayUI" type="Control" unique_id=1157946266]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m24ka")
+
+[node name="Canvas" type="CanvasLayer" parent="." unique_id=1035608974]
+
+[node name="EndButtons" type="NinePatchRect" parent="Canvas" unique_id=1000661922]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = 41.20999
+offset_right = 168.0
+offset_bottom = 232.21008
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7xth8")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="PlayAgainButton" parent="Canvas/EndButtons" unique_id=657550418 instance=ExtResource("3_qtjcj")]
+layout_mode = 1
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = -163.00012
+offset_right = 102.0
+offset_bottom = -101.99999
+grow_vertical = 0
+
+[node name="Label" parent="Canvas/EndButtons/PlayAgainButton" index="0" unique_id=1542724085]
+text = "Play Again"
+
+[node name="MainMenuButton" parent="Canvas/EndButtons" unique_id=537693420 instance=ExtResource("3_qtjcj")]
+layout_mode = 1
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = -85.605
+offset_right = 102.0
+offset_bottom = -24.6044
+grow_vertical = 0
+
+[node name="Label" parent="Canvas/EndButtons/MainMenuButton" index="0" unique_id=1542724085]
+text = "Main Menu"
+
+[node name="PausePanel" type="Control" parent="Canvas" unique_id=1768525709]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_t255e")
+
+[node name="Background" type="NinePatchRect" parent="Canvas/PausePanel" unique_id=1736299083]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = -232.5
+offset_right = 238.0
+offset_bottom = 232.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7xth8")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="PauseText" type="Label" parent="Canvas/PausePanel/Background" unique_id=1206497182]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -121.0
+offset_top = 83.5
+offset_right = 122.0
+offset_bottom = 171.5
+grow_horizontal = 2
+text = "Pause"
+label_settings = SubResource("LabelSettings_euove")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseResumeButton" parent="Canvas/PausePanel/Background" unique_id=1809690080 instance=ExtResource("3_qtjcj")]
+layout_mode = 1
+offset_left = -133.0
+offset_top = -29.0
+offset_right = 134.0
+offset_bottom = 20.0
+
+[node name="Label" parent="Canvas/PausePanel/Background/PauseResumeButton" index="0" unique_id=1542724085]
+text = "Resume"
+
+[node name="PauseRestartButton" parent="Canvas/PausePanel/Background" unique_id=289043518 instance=ExtResource("3_qtjcj")]
+layout_mode = 1
+offset_left = -133.0
+offset_top = 29.0
+offset_right = 134.0
+offset_bottom = 78.0
+
+[node name="Label" parent="Canvas/PausePanel/Background/PauseRestartButton" index="0" unique_id=1542724085]
+text = "Restart"
+
+[node name="PauseSettingsButton" parent="Canvas/PausePanel/Background" unique_id=810337818 instance=ExtResource("3_qtjcj")]
+layout_mode = 1
+offset_left = -133.0
+offset_top = 86.0
+offset_right = 134.0
+offset_bottom = 135.0
+
+[node name="Label" parent="Canvas/PausePanel/Background/PauseSettingsButton" index="0" unique_id=1542724085]
+text = "Settings"
+
+[node name="PauseMainMenuButton" parent="Canvas/PausePanel/Background" unique_id=2092630974 instance=ExtResource("3_qtjcj")]
+layout_mode = 1
+offset_left = -133.0
+offset_top = 143.0
+offset_right = 134.0
+offset_bottom = 192.0
+
+[node name="Label" parent="Canvas/PausePanel/Background/PauseMainMenuButton" index="0" unique_id=1542724085]
+text = "Main Menu"
+
+[connection signal="button_down" from="Canvas/EndButtons/PlayAgainButton" to="." method="_on_play_again_button_button_down"]
+[connection signal="button_down" from="Canvas/EndButtons/MainMenuButton" to="." method="_on_main_menu_button_button_down"]
+[connection signal="button_down" from="Canvas/PausePanel/Background/PauseResumeButton" to="Canvas/PausePanel" method="_on_pause_resume_button_button_down"]
+[connection signal="button_down" from="Canvas/PausePanel/Background/PauseRestartButton" to="Canvas/PausePanel" method="_on_pause_restart_button_button_down"]
+[connection signal="button_down" from="Canvas/PausePanel/Background/PauseSettingsButton" to="Canvas/PausePanel" method="_on_pause_settings_button_button_down"]
+[connection signal="button_down" from="Canvas/PausePanel/Background/PauseMainMenuButton" to="Canvas/PausePanel" method="_on_pause_main_menu_button_button_down"]
+
+[editable path="Canvas/EndButtons/PlayAgainButton"]
+[editable path="Canvas/EndButtons/MainMenuButton"]
+[editable path="Canvas/PausePanel/Background/PauseResumeButton"]
+[editable path="Canvas/PausePanel/Background/PauseRestartButton"]
+[editable path="Canvas/PausePanel/Background/PauseSettingsButton"]
+[editable path="Canvas/PausePanel/Background/PauseMainMenuButton"]

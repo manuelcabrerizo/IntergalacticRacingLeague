@@ -1,0 +1,280 @@
+[gd_scene format=3 uid="uid://cc2085yxqyynv"]
+
+[ext_resource type="Script" uid="uid://cgqmnw228qm4g" path="res://Objects/gameplay_panel.gd" id="1_i2v7o"]
+[ext_resource type="FontFile" uid="uid://b4ythjacb4hla" path="res://Art/Fonts/Raceline Demo.otf" id="2_13pdb"]
+[ext_resource type="Texture2D" uid="uid://deua6272hdee6" path="res://Art/Textures/Dark Droid.png" id="2_i0pqx"]
+[ext_resource type="Script" uid="uid://csbpalycss3se" path="res://Resources/pickup_data.gd" id="3_13pdb"]
+[ext_resource type="Texture2D" uid="uid://c73nr6k3ow1pc" path="res://Art/Textures/gradient_panel.png" id="3_i0pqx"]
+[ext_resource type="AudioStream" uid="uid://d0ijjmeupwytj" path="res://Art/Audio/Sfxs/FinalBeep.wav" id="6_aojqq"]
+[ext_resource type="Texture2D" uid="uid://d05864nde2sne" path="res://Art/Textures/Dark Pink Revolver.png" id="6_i0pqx"]
+[ext_resource type="AudioStream" uid="uid://cqwfm4jit51sd" path="res://Art/Audio/Sfxs/Beep.wav" id="7_bh4ws"]
+
+[sub_resource type="Resource" id="Resource_i0pqx"]
+script = ExtResource("3_13pdb")
+pickups = Dictionary[int, Texture2D]({
+0: ExtResource("2_i0pqx"),
+1: ExtResource("6_i0pqx")
+})
+metadata/_custom_type_script = "uid://csbpalycss3se"
+
+[sub_resource type="LabelSettings" id="LabelSettings_nlo60"]
+font = ExtResource("2_13pdb")
+font_size = 180
+font_color = Color(0.8603382, 0.79873943, 0.20597672, 1)
+outline_size = 12
+outline_color = Color(0.13686025, 0.29849142, 0.6479523, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ek3m4"]
+font = ExtResource("2_13pdb")
+font_size = 64
+font_color = Color(0.7980801, 0.3306, 0.87, 1)
+outline_size = 12
+outline_color = Color(0.13686025, 0.29849142, 0.6479523, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oq50b"]
+font = ExtResource("2_13pdb")
+font_size = 40
+font_color = Color(1, 0.8745098, 0.078431375, 1)
+outline_size = 12
+outline_color = Color(0.13686025, 0.29849142, 0.6479523, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h74iw"]
+font = ExtResource("2_13pdb")
+font_size = 64
+font_color = Color(0.61960787, 0.8745098, 0.33333334, 1)
+outline_size = 12
+outline_color = Color(0.13686025, 0.29849142, 0.6479523, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i2v7o"]
+font = ExtResource("2_13pdb")
+font_size = 64
+font_color = Color(0.61960787, 0.8745098, 0.33333334, 1)
+outline_size = 12
+outline_color = Color(0.13686025, 0.29849142, 0.6479523, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oy1hs"]
+font = ExtResource("2_13pdb")
+font_size = 128
+font_color = Color(0.87, 0.8247601, 0.19140002, 1)
+outline_size = 12
+outline_color = Color(0.13686025, 0.29849142, 0.6479523, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_13pdb"]
+font = ExtResource("2_13pdb")
+font_size = 24
+font_color = Color(0.8, 0.296, 0.296, 1)
+outline_size = 12
+outline_color = Color(0.13686025, 0.29849142, 0.6479523, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i0pqx"]
+font = ExtResource("2_13pdb")
+font_size = 48
+font_color = Color(0.8, 0.296, 0.296, 1)
+outline_size = 12
+outline_color = Color(0.13686025, 0.29849142, 0.6479523, 1)
+
+[node name="GameplayPanel" type="Control" unique_id=1132814554]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i2v7o")
+pickup_data = SubResource("Resource_i0pqx")
+beep = ExtResource("7_bh4ws")
+final_beep = ExtResource("6_aojqq")
+
+[node name="GameplayInfo" type="Control" parent="." unique_id=1147533248]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CountDownText" type="Label" parent="GameplayInfo" unique_id=209401266]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -110.0
+offset_right = 111.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(135, 135)
+size_flags_horizontal = 4
+text = "0"
+label_settings = SubResource("LabelSettings_nlo60")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RaceTimeText" type="Label" parent="GameplayInfo" unique_id=1534971746]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -197.0
+offset_bottom = 100.0
+grow_horizontal = 0
+pivot_offset = Vector2(50, 50)
+size_flags_horizontal = 4
+text = "0"
+label_settings = SubResource("LabelSettings_ek3m4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RaceLapText" type="Label" parent="GameplayInfo" unique_id=1403816797]
+layout_mode = 1
+offset_left = 11.0
+offset_top = 78.315
+offset_right = 236.99344
+offset_bottom = 134.31497
+pivot_offset = Vector2(50, 50)
+size_flags_horizontal = 4
+text = "Lap 1"
+label_settings = SubResource("LabelSettings_oq50b")
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameplayInfo" unique_id=1470977489]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 260.0
+offset_bottom = 81.0
+
+[node name="PositionText" type="Label" parent="GameplayInfo/HBoxContainer" unique_id=1991264015]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "P0"
+label_settings = SubResource("LabelSettings_h74iw")
+vertical_alignment = 1
+
+[node name="ShipsCountText" type="Label" parent="GameplayInfo/HBoxContainer" unique_id=381382044]
+layout_mode = 2
+size_flags_horizontal = 4
+text = " of 60"
+label_settings = SubResource("LabelSettings_h74iw")
+vertical_alignment = 1
+
+[node name="PowerUpIcon" type="NinePatchRect" parent="GameplayInfo" unique_id=1721363423]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -38.387024
+offset_top = -106.67499
+offset_right = 38.387146
+offset_bottom = -31.674988
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_i0pqx")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="PowerUpTexture" type="TextureRect" parent="GameplayInfo/PowerUpIcon" unique_id=1729946888]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.212898
+offset_top = 9.0
+offset_right = -9.212898
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_i0pqx")
+expand_mode = 1
+
+[node name="ResultInfo" type="Control" parent="." unique_id=193582065]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EndTitleText" type="Label" parent="ResultInfo" unique_id=595588341]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.5
+offset_top = -145.07
+offset_right = 132.5
+offset_bottom = -50.07007
+grow_horizontal = 2
+grow_vertical = 2
+text = "Finish"
+label_settings = SubResource("LabelSettings_i2v7o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndPositionText" type="Label" parent="ResultInfo" unique_id=55814617]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -87.5
+offset_right = 91.0
+offset_bottom = 87.49985
+grow_horizontal = 2
+grow_vertical = 2
+text = "P0"
+label_settings = SubResource("LabelSettings_oy1hs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EliminationInfo" type="Control" parent="." unique_id=1769512739]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EliminationText" type="Label" parent="EliminationInfo" unique_id=4101918]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -119.0
+offset_top = 80.06
+offset_right = 119.0
+offset_bottom = 115.20001
+grow_horizontal = 2
+text = "Next Elimination in:"
+label_settings = SubResource("LabelSettings_13pdb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EliminationCountDown" type="Label" parent="EliminationInfo" unique_id=960089281]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.0
+offset_top = 106.14
+offset_right = 47.0
+offset_bottom = 173.23999
+grow_horizontal = 2
+text = "3"
+label_settings = SubResource("LabelSettings_i0pqx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=432006653]

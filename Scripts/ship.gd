@@ -2,6 +2,7 @@ class_name Ship
 extends CharacterBody3D
 
 var slow_down_mine_scene : PackedScene = preload("res://Objects/SlowDownMine.tscn")
+var slow_down_projectile_scene: PackedScene = preload("res://Objects/slow_down_projectile.tscn")
 
 const TRACK_PULL: float = 128.0*1.5
 const TRACK_PUSH: float = 2000.0
@@ -41,24 +42,22 @@ var track_offset: float = 0.0
 var current_lap: int = 0
 var max_lap: int = 0;
 var current_position: int = -1
-var can_spawn_slow_down_mine: bool = false
+var can_spawn_slow_down_pickup: bool = false
+var slow_down_pickup_type: SlowDownPickup.SlowDownPickupType
 
 var first_update: bool = true
 
 func  _ready() -> void:
-	EventBuss.race_state_chane.connect(on_race_state_change)
+	EventBuss.race_state_chane_.connect(on_race_state_change)
 	EventBuss.on_ship_spawn(self)
 	pass
 	
-func on_race_state_change(state: int, _reason: int):
+func on_race_state_change(state: int, _reason: int, _id: int):
 	match(state):
 		Gameplay.RaceState.COUNT_DOWN:
 			can_move = false
 		Gameplay.RaceState.IN_PROGRESS:
 			can_move = true
-		Gameplay.RaceState.ENDED:
-			is_ended = true
-			max_velocity = END_VELOCITY
 	pass
 
 func ship_update(delta: float, track_path: Path3D, track_path_follow: PathFollow3D) -> void:
@@ -80,6 +79,10 @@ func ship_reset(track_path: Path3D):
 	velocity = Vector3.ZERO
 	rotation = reset_transform.basis.get_euler()
 	pass
+
+func ship_end():
+	is_ended = true
+	max_velocity = END_VELOCITY
 
 func process_turns(delta: float):
 	global_rotate(basis.y, vel_yaw)
@@ -171,6 +174,7 @@ func get_offset_on_path(track_path: Path3D) -> float:
 func start_new_lap():
 	current_lap = current_lap + 1
 	max_lap = max(max_lap, current_lap)
+	EventBuss.on_ship_start_new_lap(current_lap, self)
 	pass
 	
 	
@@ -209,15 +213,31 @@ func process_auto_pilot(delta: float, track_path: Path3D, track_path_follow: Pat
 	vel_roll += ROTATION_ROLL_SPEED * turn_ration * delta
 	pass
 
-func slow_down_mine_grabbed():
-	can_spawn_slow_down_mine = true
+func slow_down_pickup_grabbed(pick_up_type: SlowDownPickup.SlowDownPickupType):
+	if can_spawn_slow_down_pickup == false:
+		can_spawn_slow_down_pickup = true
+		slow_down_pickup_type = pick_up_type
+	pass
+
+func spawn_slow_down_pickup(track_path: Path3D, track_path_follow: PathFollow3D):
+	if not can_spawn_slow_down_pickup:
+		return
+	match slow_down_pickup_type:
+		SlowDownPickup.SlowDownPickupType.SLOW_DOWN_MINE:
+			spawn_slow_down_mine()
+		SlowDownPickup.SlowDownPickupType.SLOW_DOWN_PROJECTILE:
+			spawn_slow_down_projectile(track_path, track_path_follow)
+	can_spawn_slow_down_pickup = false
+	pass
+
+func spawn_slow_down_projectile(track_path: Path3D, track_path_follow: PathFollow3D):
+	var slow_down_projectile: SlowDownProjectile = slow_down_projectile_scene.instantiate()
+	get_tree().current_scene.add_child(slow_down_projectile)
+	slow_down_projectile.initialize(self, track_path, track_path_follow)
 	pass
 
 func spawn_slow_down_mine():
-	if not can_spawn_slow_down_mine:
-		return
 	var slow_down_mine: SlowDownMine = slow_down_mine_scene.instantiate()
-	get_tree().root.add_child(slow_down_mine)
+	get_tree().current_scene.add_child(slow_down_mine)
 	slow_down_mine.set_instigator(self)
-	can_spawn_slow_down_mine = false
 	pass

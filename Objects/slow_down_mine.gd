@@ -8,6 +8,7 @@ var is_dropped: bool = false
 var ships: Array[Ship]
 
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var audio_stream_player_split_screen: AudioStreamPlayer = $AudioStreamPlayerSplitScreen
 @onready var visual: MeshInstance3D = $Visual
 
 func _ready() -> void:
@@ -24,7 +25,7 @@ func _ready() -> void:
 	timer.one_shot = true
 	timer.timeout.connect(shrink_and_destroy)
 	timer.start()
-	audio_stream_player_3d.play()
+	pass
 	
 func _process(_delta: float) -> void:
 	if not is_dropped:
@@ -33,6 +34,7 @@ func _process(_delta: float) -> void:
 
 func set_instigator(new_instigator: Ship):
 	instigator = new_instigator
+	play_spawn_sound()
 	pass
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
@@ -64,4 +66,12 @@ func on_destroy():
 		if is_instance_valid(ship):
 			ship.damping = 0.8
 	queue_free()
+	pass
+	
+func play_spawn_sound():
+	if GameState.current_gameplay_option == GameState.GameplayOption.SINGLE_PLAYER: 
+		audio_stream_player_3d.play()
+	elif GameState.current_gameplay_option == GameState.GameplayOption.SPLIT_SCREEN:
+		if instigator is Player:
+			audio_stream_player_split_screen.play()
 	pass

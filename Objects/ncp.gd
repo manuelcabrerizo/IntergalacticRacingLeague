@@ -14,7 +14,7 @@ extends Ship
 @onready var cpu_particles_3d: CPUParticles3D = $Visual/CPUParticles3D
 
 const SHIP_REPULSION_FORCE = 75.0
-const NPC_MAX_VELOCITY = 300.0
+const NPC_MAX_VELOCITY = 400.0
 const NPC_MIN_VELOCITY = 100.0
 
 var slow_down_mine_timer: Timer = null
@@ -71,7 +71,11 @@ func get_nearby_ships() -> Array[Ship]:
 	
 func set_current_position(pos: int):
 	if(current_lap > 0):
-		label.text = "P" + str(pos)
+		if pos > 0:
+			label.text = "P" + str(pos)
+		else:
+			label.text = "OUT"
+			
 	super(pos)
 	pass
 	
@@ -85,12 +89,13 @@ func ship_update_enigne():
 	cpu_particles_3d.color.a = lerp(0.0, 1.0, t*t)
 	pass
 	
-func slow_down_mine_grabbed():
-	super()
-	slow_down_mine_timer.wait_time = randf_range(4.0, 20.0)
-	slow_down_mine_timer.start()
+func slow_down_pickup_grabbed(pick_up_type: SlowDownPickup.SlowDownPickupType):
+	if can_spawn_slow_down_pickup == false:
+		super(pick_up_type)
+		slow_down_mine_timer.wait_time = randf_range(4.0, 20.0)
+		slow_down_mine_timer.start()
 	pass
 	
 func fire_slow_down_mine():
-	spawn_slow_down_mine()
+	spawn_slow_down_pickup(track_path, track_path_follow)
 	pass

@@ -1,20 +1,21 @@
 class_name Gameplay
 extends Node3D
 
-enum RaceState {
+enum RaceState
+{
 	NONE,
 	COUNT_DOWN,
 	IN_PROGRESS,
 	ENDED
 }
 
-enum RaceStateChangeReason {
+enum RaceStateChangeReason 
+{
 	NORMAL,
 	TIME_OUT,
-	PLAYER_FINISH
+	PLAYER_FINISH,
+	ELIMINATED,
 }
-
-var timer: Timer
 
 @export var sound_data: SoundData
 @onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
@@ -27,87 +28,45 @@ var count_down_time: int = 0
 var race_time: int = 0
 
 var state: RaceState = RaceState.NONE
-
+var game_mode: GameMode = null
 var ships: Array[Ship]
+var players: Array[Player]
 
 func _init() -> void:
 	EventBuss.ship_spawn.connect(on_ship_spawn)
-	EventBuss.player_start_new_lap.connect(on_player_start_new_lap)
+	match GameState.current_game_mode:
+		GameState.GameModeOption.RACE:
+			game_mode = RaceGameMode.new()
+		GameState.GameModeOption.SURVIVAL:
+			game_mode = SurvivalGameMode.new()
+	game_mode.init(self)
 	pass
 
 func _ready() -> void:
-	GameState.current_level_lap_count = race_lap_count
-	timer = Timer.new()
-	add_child(timer)
-	set_count_down_state()
+	game_mode.ready()
+	pass
+	
+func _exit_tree():
+	game_mode.free()
 	pass
 
 func _process(_delta: float) -> void:
-	if state == RaceState.IN_PROGRESS:
-		ships.sort_custom(func(a, b): return b.track_offset < a.track_offset)
-		for i in range(ships.size()):
-			ships[i].set_current_position(i+1)
-	pass
-	
-func set_state(new_state: RaceState, reason: RaceStateChangeReason):
-	state = new_state
-	EventBuss.on_race_state_change(new_state, reason)
-	pass
-	
-func set_count_down_state():
-	audio_stream_player.stop()
-	audio_stream_player.stream = sound_data.songs["count_down"]
-	audio_stream_player.play()
-	set_state(RaceState.COUNT_DOWN, RaceStateChangeReason.NORMAL)
-	timer.wait_time = 1.0
-	timer.one_shot = false
-	timer.timeout.connect(on_count_down_change)
-	EventBuss.on_count_down_timer_change(count_down_duration)
-	timer.start()
-	pass
-	
-func on_count_down_change():
-	count_down_time = count_down_time + 1
-	EventBuss.on_count_down_timer_change(count_down_duration - count_down_time)
-	if count_down_time == count_down_duration:
-		timer.stop()
-		timer.timeout.disconnect(on_count_down_change)
-		set_in_progress_state();
-	pass
-	
-func set_in_progress_state():
-	audio_stream_player.stop()
-	audio_stream_player.stream = sound_data.songs["in_progress"]
-	audio_stream_player.play()
-	set_state(RaceState.IN_PROGRESS, RaceStateChangeReason.NORMAL)
-	timer.wait_time = 1.0
-	timer.one_shot = false
-	timer.timeout.connect(on_race_time_change)
-	EventBuss.on_race_timer_change(race_duration)
-	timer.start()
-	pass
-	
-func on_race_time_change():
-	race_time = race_time + 1
-	EventBuss.on_race_timer_change(race_duration - race_time)
-	if race_time == race_duration:
-		set_ended_state(RaceStateChangeReason.TIME_OUT, "timeout")
+	game_mode.update()
 	pass
 	
 func on_ship_spawn(ship: Ship):
 	ships.push_back(ship)
-	pass
-
-func on_player_start_new_lap(lap: int):
-	if lap > race_lap_count and state != RaceState.ENDED:
-		set_ended_state(RaceStateChangeReason.PLAYER_FINISH, "finish")
+	if ship is Player:
+		players.push_back(ship)
 	pass
 	
-func set_ended_state(reason: RaceStateChangeReason, song: String):
-	audio_stream_player.stop()
-	audio_stream_player.stream = sound_data.songs[song]
-	audio_stream_player.play()
-	timer.stop()
-	timer.timeout.disconnect(on_race_time_change)
-	set_state(RaceState.ENDED, reason)
+func set_state(new_state: RaceState, reason: RaceStateChangeReason, id_mask: int):
+	state = new_state
+	EventBuss.on_race_state_change(new_state, reason, id_mask)
 	pass
+	
+func get_player_from_id(id: int) -> Player:
+	for p in players:
+		if p.id == id:
+			return p
+	return null

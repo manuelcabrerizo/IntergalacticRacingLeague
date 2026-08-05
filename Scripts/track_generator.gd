@@ -5,7 +5,6 @@ extends Node3D
 @onready var track_floor: MeshInstance3D = $TrackFloor
 @onready var track_wall: MeshInstance3D = $TrackWall
 
-
 @export var reload := false:
 	set(new_reload):
 		reload = false
@@ -29,9 +28,6 @@ extends Node3D
 var floor_mesh: ArrayMesh
 var wall_mesh: ArrayMesh
 
-func _ready() -> void:
-	regenerate_meshes()
-		
 func regenerate_meshes() -> void:
 	if not is_node_ready() or track_path == null:
 		return

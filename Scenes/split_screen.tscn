@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://d34b5yon821nn"]
+
+[ext_resource type="Script" uid="uid://xbngjqcuv4a7" path="res://Scripts/camera_3d.gd" id="1_4qopw"]
+[ext_resource type="PackedScene" uid="uid://cc2085yxqyynv" path="res://Objects/gameplay_panel.tscn" id="2_yikt4"]
+[ext_resource type="FontFile" uid="uid://b4ythjacb4hla" path="res://Art/Fonts/Raceline Demo.otf" id="3_w3qu4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oq50b"]
+font = ExtResource("3_w3qu4")
+font_size = 64
+font_color = Color(0.61960787, 0.8745098, 0.33333334, 1)
+outline_size = 12
+outline_color = Color(0.13686025, 0.29849142, 0.6479523, 1)
+
+[node name="SplitScreen" type="GridContainer" unique_id=1265036907]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=792235202]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=348926387]
+handle_input_locally = false
+size = Vector2i(574, 648)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1775687259]
+transform = Transform3D(-0.060473643, 0.37080136, -0.92674124, 0, 0.9284405, 0.37148124, 0.99816984, 0.022464823, -0.056146175, -283.14795, 14.004896, 126.30894)
+fov = 90.0
+script = ExtResource("1_4qopw")
+
+[node name="Canvas" type="CanvasLayer" parent="SubViewportContainer/SubViewport" unique_id=159532874]
+
+[node name="GameplayPanel" parent="SubViewportContainer/SubViewport/Canvas" unique_id=1132814554 instance=ExtResource("2_yikt4")]
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="." unique_id=449801150]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2" unique_id=862587772]
+handle_input_locally = false
+size = Vector2i(574, 648)
+render_target_update_mode = 4
+
+[node name="Camera3D2" type="Camera3D" parent="SubViewportContainer2/SubViewport" unique_id=1083338459]
+transform = Transform3D(-0.060473643, 0.37080136, -0.92674124, 0, 0.9284405, 0.37148124, 0.99816984, 0.022464823, -0.056146175, -283.14795, 14.004896, 126.30894)
+fov = 90.0
+script = ExtResource("1_4qopw")
+
+[node name="Canvas" type="CanvasLayer" parent="SubViewportContainer2/SubViewport" unique_id=1978093720]
+
+[node name="GameplayPanel" parent="SubViewportContainer2/SubViewport/Canvas" unique_id=512396405 instance=ExtResource("2_yikt4")]
+player_id = 2
+
+[node name="EndTitleText" parent="SubViewportContainer2/SubViewport/Canvas/GameplayPanel/ResultInfo" parent_id_path=PackedInt32Array(512396405, 193582065) index="0" unique_id=595588341]
+label_settings = SubResource("LabelSettings_oq50b")
+
+[editable path="SubViewportContainer2/SubViewport/Canvas/GameplayPanel"]

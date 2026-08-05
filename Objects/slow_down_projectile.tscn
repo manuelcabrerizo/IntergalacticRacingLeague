@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://iwiolx6nj2jr"]
+
+[ext_resource type="Script" uid="uid://dpmiqpki20tkj" path="res://Objects/slow_down_projectile.gd" id="1_r73h8"]
+[ext_resource type="AudioStream" uid="uid://c5cjkpyc0ibei" path="res://Art/Audio/Sfxs/alien-blaster.wav" id="2_b8rxr"]
+[ext_resource type="AudioStream" uid="uid://fmmgqehqrc43" path="res://Art/Audio/Sfxs/rumble1 (1).ogg" id="2_g46ie"]
+[ext_resource type="Texture2D" uid="uid://dodknq22ul0jx" path="res://Art/Textures/neon.png" id="4_b8rxr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g46ie"]
+radius = 1.4591204
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35ijq"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_b8rxr")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.2
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_tyv6w"]
+material = SubResource("StandardMaterial3D_35ijq")
+
+[sub_resource type="Curve" id="Curve_kvhvo"]
+_limits = [0.0, 8.0, 0.0, 1.0]
+_data = [Vector2(0, 2.27704), 0.0, 0.0, 0, 0, Vector2(0.05679012, 4.8918405), 0.0, 0.0, 0, 0, Vector2(1, 1.3851993), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_ccr0v"]
+offsets = PackedFloat32Array(0.10817942, 0.52506596, 0.7651715, 1)
+colors = PackedColorArray(0.5999999, 0, 1, 1, 1, 0.65, 0, 1, 0.26666665, 1, 0, 0.8352941, 0, 0, 1, 0)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_b8rxr"]
+radius = 50.0
+
+[node name="SlowDownProjectile" type="Node3D" unique_id=1795752478]
+script = ExtResource("1_r73h8")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=467264101]
+collision_layer = 128
+collision_mask = 33
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1885635370]
+shape = SubResource("SphereShape3D_g46ie")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=1579557211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07854229, 0.20488024, -1.3198229)
+amount = 25
+lifetime = 0.75
+preprocess = 10.0
+local_coords = true
+mesh = SubResource("QuadMesh_tyv6w")
+direction = Vector3(0, 0, 1)
+spread = 2.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 25.0
+scale_amount_curve = SubResource("Curve_kvhvo")
+color_ramp = SubResource("Gradient_ccr0v")
+
+[node name="ExplosionParticles" type="CPUParticles3D" parent="." unique_id=1843620829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07854229, 0.20488024, -1.3198229)
+emitting = false
+amount = 100
+lifetime = 0.75
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+mesh = SubResource("QuadMesh_tyv6w")
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 25.0
+scale_amount_curve = SubResource("Curve_kvhvo")
+color_ramp = SubResource("Gradient_ccr0v")
+
+[node name="Range" type="Area3D" parent="." unique_id=310395171]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Range" unique_id=1351435655]
+shape = SubResource("SphereShape3D_b8rxr")
+
+[node name="Timer" type="Timer" parent="." unique_id=753692118]
+
+[node name="ExplotionStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=917712880]
+stream = ExtResource("2_g46ie")
+unit_size = 120.0
+bus = &"Sfx"
+
+[node name="ExplotionStreamPlayerSplitScreen" type="AudioStreamPlayer" parent="." unique_id=619811172]
+stream = ExtResource("2_g46ie")
+
+[node name="FireStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1489962529]
+stream = ExtResource("2_b8rxr")
+unit_size = 120.0
+bus = &"Sfx"
+
+[node name="FireStreamPlayerSplitScreen" type="AudioStreamPlayer" parent="." unique_id=533229669]
+stream = ExtResource("2_b8rxr")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]

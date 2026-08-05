@@ -124,27 +124,40 @@ patch_margin_bottom = 4
 
 [node name="PlayButton" parent="MainMenu/CanvasLayer/TextureRect" unique_id=657550418 instance=ExtResource("4_2x1g0")]
 layout_mode = 1
-offset_left = -90.5
-offset_top = -96.01
-offset_right = 90.5
-offset_bottom = -37.00992
+offset_left = -148.35
+offset_top = -127.0
+offset_right = 151.65
+offset_bottom = -68.0
+
+[node name="Label" parent="MainMenu/CanvasLayer/TextureRect/PlayButton" index="0" unique_id=1542724085]
+text = "Single Player"
+
+[node name="SplitScreenButton" parent="MainMenu/CanvasLayer/TextureRect" unique_id=579954429 instance=ExtResource("4_2x1g0")]
+layout_mode = 1
+offset_left = -148.35
+offset_top = -61.70501
+offset_right = 151.65
+offset_bottom = -2.705017
+
+[node name="Label" parent="MainMenu/CanvasLayer/TextureRect/SplitScreenButton" index="0" unique_id=1542724085]
+text = "Split Screen"
 
 [node name="SettingsButton" parent="MainMenu/CanvasLayer/TextureRect" unique_id=1739847905 instance=ExtResource("4_2x1g0")]
 layout_mode = 1
-offset_left = -90.5
-offset_top = -29.5
-offset_right = 90.5
-offset_bottom = 29.5
+offset_left = -148.35
+offset_top = 4.8049927
+offset_right = 151.65
+offset_bottom = 63.804886
 
 [node name="Label" parent="MainMenu/CanvasLayer/TextureRect/SettingsButton" index="0" unique_id=1542724085]
 text = "Settings"
 
 [node name="ExitButton" parent="MainMenu/CanvasLayer/TextureRect" unique_id=300981396 instance=ExtResource("4_2x1g0")]
 layout_mode = 1
-offset_left = -90.5
-offset_top = 41.179993
-offset_right = 90.5
-offset_bottom = 100.18042
+offset_left = -148.35
+offset_top = 75.484985
+offset_right = 151.65
+offset_bottom = 134.48529
 
 [node name="Label" parent="MainMenu/CanvasLayer/TextureRect/ExitButton" index="0" unique_id=1542724085]
 text = "Exit"
@@ -219,7 +232,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.119712, 0)
 mesh = ExtResource("8_cmrfp")
 
 [node name="HutsNHomesHut4" type="MeshInstance3D" parent="Background" unique_id=1815142911]
-transform = Transform3D(-6.0332994, 0, -14.818883, 0, 16, 0, 14.818883, 0, -6.0332994, -1460.4081, 75.3566, -1366.571)
+transform = Transform3D(-6.0254717, -0.53958195, -14.8122425, 0.8147861, 15.953159, -0.91259015, 14.799657, -1.0979748, -5.9803543, -1460.3153, 69.74164, -1366.3823)
 mesh = ExtResource("7_koqhg")
 
 [node name="HutsNHomesCylinder002" type="MeshInstance3D" parent="Background/HutsNHomesHut4" unique_id=1142055379]
@@ -232,9 +245,11 @@ material_override = ExtResource("13_8e205")
 mesh = ExtResource("14_7467j")
 
 [connection signal="button_down" from="MainMenu/CanvasLayer/TextureRect/PlayButton" to="MainMenu" method="_on_play_button_button_down"]
+[connection signal="button_down" from="MainMenu/CanvasLayer/TextureRect/SplitScreenButton" to="MainMenu" method="_on_split_screen_button_button_down"]
 [connection signal="button_down" from="MainMenu/CanvasLayer/TextureRect/SettingsButton" to="MainMenu" method="_on_settings_button_button_down"]
 [connection signal="button_down" from="MainMenu/CanvasLayer/TextureRect/ExitButton" to="MainMenu" method="_on_exit_button_button_down"]
 
 [editable path="MainMenu/CanvasLayer/TextureRect/PlayButton"]
+[editable path="MainMenu/CanvasLayer/TextureRect/SplitScreenButton"]
 [editable path="MainMenu/CanvasLayer/TextureRect/SettingsButton"]
 [editable path="MainMenu/CanvasLayer/TextureRect/ExitButton"]
